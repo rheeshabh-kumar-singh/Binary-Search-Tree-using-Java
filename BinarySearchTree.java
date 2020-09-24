@@ -7,7 +7,7 @@ public class BinarySearchTree {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Node root=createBST();
+		Node root=createBSTfromArray();
 		inOrder(root);
 		System.out.println();
 		preOrder(root);
@@ -15,31 +15,54 @@ public class BinarySearchTree {
 
 	}
 
-	static Node createBST()
+	static Node createBSTnodeByNode()
 	{
-		sc= new Scanner(System.in);
 		Node root=null;
-		System.out.println("Enter node:");
-		int data= sc.nextInt();
-		if (data== -1) return null;
-		root= new Node(data);
-		
-		Node nextNode= createBST();
-		
-		if(nextNode == null) 
-			{
-				root.right=null;
-				root.right=null;
-			}
-		else if((nextNode.data)>=(root.data))
-			{
-				root.right=nextNode;
-			}
-		else
-			{
-				root.left=nextNode;
-			}
+		sc= new Scanner(System.in);
+		System.out.println("enter node data: ");
+		int data=sc.nextInt();
+		while(data>0)
+		{
+			root = insert(root,data);
+			System.out.println("enter node data: ");
+			data=sc.nextInt();
+		}
 		return root;
+	}
+	
+	static Node createBSTfromArray()
+	{
+		Node root=null;
+		int[] nodes=new int[] {5,4,6,8,3,2,1,7};
+		for (int i = 0; i < nodes.length; i++) {
+			root=insert(root,nodes[i]);
+		}
+		return root;
+	}
+	
+	
+	static Node newNode(int val)
+	{
+		Node a = new Node(val);
+		a.left=null;
+		a.right=null;
+		return a;
+	}
+	
+	static Node insert(Node node, int val)
+	{
+		if(node==null) return newNode(val);
+		
+		if(node.data<val)
+		{
+			node.right = insert(node.right, val);
+		}
+		else if(node.data>val)
+		{
+			node.left = insert(node.left, val);
+		}
+		
+		return node;
 	}
 	
 	
@@ -77,7 +100,7 @@ public class BinarySearchTree {
 
 class Node
 {
-	Node left=null,right=null;
+	Node left,right;
 	int data;
 	Node(int data)
 	{
