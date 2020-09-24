@@ -1,6 +1,6 @@
 package packageBST;
 
-public class searchNode {
+public class SearchNode {
 	
 	public Node search(Node root, int val)
 	{
