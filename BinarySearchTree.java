@@ -12,14 +12,14 @@ public class BinarySearchTree {
 		System.out.println();
 		preOrder(root);
 		System.out.println();
-		
-		
-		DeleteNode dn=new DeleteNode();
-		root= dn.deleteNode(root, 2);
-		
-		inOrder(root);
 		System.out.println();
-		preOrder(root);
+		
+		int[] preorder=new int[] {5,4,3,2,1,6,8,7};
+		
+		GeneratingBST gbst= new GeneratingBST();
+		gbst.preorder(preorder);
+		
+		
 
 	}
 
