@@ -19,6 +19,11 @@ public class DeleteNode {
 			{
 				return root.right;
 			}
+			else if(root.right==null)
+			{
+				return root.left;
+			}
+			
 		}
 		
 		return root;

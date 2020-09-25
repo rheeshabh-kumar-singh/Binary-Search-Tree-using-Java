@@ -4,6 +4,7 @@ public class SearchNode {
 	
 	public Node search(Node root, int val)
 	{
+		if(root==null) return null;
 		Node node=null;
 		if(root.data<val)
 		{
