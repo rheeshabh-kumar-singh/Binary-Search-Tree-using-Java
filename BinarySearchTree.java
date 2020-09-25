@@ -11,7 +11,15 @@ public class BinarySearchTree {
 		inOrder(root);
 		System.out.println();
 		preOrder(root);
+		System.out.println();
 		
+		
+		DeleteNode dn=new DeleteNode();
+		root= dn.deleteNode(root, 2);
+		
+		inOrder(root);
+		System.out.println();
+		preOrder(root);
 
 	}
 

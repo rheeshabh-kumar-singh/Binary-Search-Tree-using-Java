@@ -7,26 +7,49 @@ public class DeleteNode {
 		if(root==null) return null;
 		if(root.data<val)
 		{
-			root= deleteNode(root.left, val);
+			root.right= deleteNode(root.right, val);
 		}
 		else if(root.data>val)
 		{
-			root= deleteNode(root.right, val);
+			root.left= deleteNode(root.left, val);
 		}
 		else
 		{
-			if(root.left==null)
+			if (root.left==null && root.right==null)
 			{
-				return root.right;
+				return null;
+			}
+			else if(root.left==null)
+			{
+				root= root.right;
 			}
 			else if(root.right==null)
 			{
-				return root.left;
+				root= root.left;
 			}
+			else
+			{
+				root.data= min(root.right);
+				deleteNode(root,root.data);
+			}
+			
 			
 		}
 		
+		
 		return root;
+	}
+	
+	
+	static int min(Node root)
+	{
+		int data=root.data;
+		while(root.left!=null)
+		{
+			data = root.left.data;
+			root = root.left;
+		}
+		return data;
 	}
 
 }

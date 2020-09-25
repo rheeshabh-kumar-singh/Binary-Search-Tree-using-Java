@@ -8,11 +8,11 @@ public class SearchNode {
 		Node node=null;
 		if(root.data<val)
 		{
-			node= search(root.left, val);
+			node= search(root.right, val);
 		}
 		else if(root.data>val)
 		{
-			node= search(root.right, val);
+			node= search(root.left, val);
 		}
 		
 		return node;
